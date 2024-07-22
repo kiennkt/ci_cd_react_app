@@ -44,9 +44,6 @@ pipeline {
             //     }
             // }
             steps {
-                sh 'pwd'
-                sh 'ls -la'
-                sh 'cd ~/ansible_config/'
                 sh 'ansible-playbook -i inventory.ini playbook.yml'
             }
         }
