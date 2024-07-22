@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-        
         stage('Scan Dockerfile') {
             steps {
                 sh 'trivy config --exit-code 1 --severity CRITICAL,HIGH,MEDIUM .'
