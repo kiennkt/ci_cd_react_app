@@ -1,12 +1,8 @@
 pipeline {
     agent {
-        label 'ansible-server'
+        label any
     }
     
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('DockerHub')
-    }
-
     stages {
         
 
@@ -57,8 +53,8 @@ pipeline {
                 }
             }
             steps {
-                sh 'cd ~/ansible-jenkins/'
-                sh 'ansible-playbook -i inventory.ini playbook_bak.yml'
+                sh 'cd ~/ansible_config/'
+                sh 'ansible-playbook -i inventory.ini playbook.yml'
             }
         }
     }
