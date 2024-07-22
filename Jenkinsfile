@@ -18,8 +18,8 @@ pipeline {
 
         stage('Scan images by Trivy') {
             steps {
-                sh 'trivy image --exit-code 1 --severity CRITICAL,HIGH kienkt/$JOB_NAME:v1.$BUILD_ID'
-                sh 'trivy image --exit-code 1 --severity CRITICAL,HIGH kienkt/$JOB_NAME:latest'
+                sh 'trivy image --light --exit-code 1 --severity CRITICAL,HIGH kienkt/$JOB_NAME:v1.$BUILD_ID'
+                sh 'trivy image --light --exit-code 1 --severity CRITICAL,HIGH kienkt/$JOB_NAME:latest'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
             steps {
                 sh 'cd ~/ansible_config/'
                 sh 'ansible-playbook -i inventory.ini playbook.yml'
-                
+
             }
         }
     }
