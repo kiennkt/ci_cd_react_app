@@ -46,6 +46,7 @@ pipeline {
             steps {
                 sh 'cd ~/ansible_config/'
                 sh 'ansible-playbook -i inventory.ini playbook.yml'
+                
             }
         }
     }
